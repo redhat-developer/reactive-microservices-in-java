@@ -1,9 +1,9 @@
-= Vert.x Application Packaging with Apache Ant
+# Vert.x Application Packaging with Apache Ant
 
 This example shows how you can use Apache Ant (http://ant.apache.org/) and Ivy (http://ant.apache.org/ivy/) to 
 package a Vert.x application as a _fat jar_.
 
-== Initialization
+## Initialization
 
 You first need to retrieve Ivy and install the application dependencies. The dependencies are described in the `ivy.xml` file.
 
@@ -15,7 +15,7 @@ ant ivy
 ant resolve
 ```
 
-== Package
+## Package
 
 Once the dependencies are resolved, you can build the application _fat-jar_ with:
 
@@ -23,7 +23,7 @@ Once the dependencies are resolved, you can build the application _fat-jar_ with
 ant
 ```
 
-== Run
+## Run
 
 The application is packaged into `dist/vertx-hello.jar`. Launch it with:
 
