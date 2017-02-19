@@ -1,0 +1,241 @@
+.vertx
+
+*.class
+# BlueJ files
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+hs_err_pid*
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+*.pydevproject
+.cproject
+.classpath
+.factorypath
+.buildpath
+.target
+.tern-project
+.texlipse
+.springBeans
+.recommenders/
+.data/
+temp/
+tmp/
+classes/
+deploy/
+javadoc/
+build/
+lib/
+
+
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Exclude maven wrapper
+!/.mvn/wrapper/maven-wrapper.jar
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Sensitive or high-churn files:
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+### macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+### Momentics template
+# Built files
+x86/
+arm/
+arm-p/
+translations/*.qm
+
+# IDE settings
+### XilinxISE template
+# intermediate build files
+*.bgn
+*.bit
+*.bld
+*.cmd_log
+*.drc
+*.ll
+*.lso
+*.msd
+*.msk
+*.ncd
+*.ngc
+*.ngd
+*.ngr
+*.pad
+*.par
+*.pcf
+*.prj
+*.ptwx
+*.rbb
+*.rbd
+*.stx
+*.syr
+*.twr
+*.twx
+*.unroutes
+*.ut
+*.xpi
+*.xst
+*_bitgen.xwbt
+*_envsettings.html
+*_map.map
+*_map.mrp
+*_map.ngm
+*_map.xrpt
+*_ngdbuild.xrpt
+*_pad.csv
+*_pad.txt
+*_par.xrpt
+*_summary.html
+*_summary.xml
+*_usage.xml
+*_xst.xrpt
+
+# iMPACT generated files
+_impactbatch.log
+impact.xsl
+impact_impact.xwbt
+ise_impact.cmd
+webtalk_impact.xml
+
+# Core Generator generated files
+xaw2verilog.log
+
+# project-wide generated files
+*.gise
+par_usage_statistics.html
+usage_statistics_webtalk.html
+webtalk.log
+webtalk_pn.xml
+
+# generated folders
+iseconfig/
+xlnx_auto_0_xdb/
+xst/
+_ngo/
+_xmsgs/
+### SublimeText template
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Package control specific files
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+bh_unicode_properties.cache
+
+# Sublime-github package stores a github token in this file
+# https://packagecontrol.io/packages/sublime-github
+GitHub.sublime-settings
