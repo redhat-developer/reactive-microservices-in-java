@@ -34,7 +34,6 @@ local.properties
 .recommenders/
 .data/
 temp/
-tmp/
 classes/
 deploy/
 javadoc/
@@ -85,6 +84,7 @@ buildNumber.properties
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
+.gradle
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
