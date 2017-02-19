@@ -1,0 +1,88 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="vertx-hello" default="main" basedir=".">
+  <description>
+    Creates a fat jar packaging a Vert.x application using Apache Ant and Ivy.
+  </description>
+
+  <property name="projectName" value="vertx-hello" />
+  <property name="src.dir" location="src" />
+  <property name="build.dir" location="bin" />
+  <property name="dist.dir" location="dist" />
+  <property name="dist.lib.dir" location="dist/lib" />
+  <property name="lib.dir" value="lib" />
+
+  <!-- use the Vert.x Launcher class, you can use your own -->
+  <property name="main-class" value="io.vertx.core.Launcher" />
+  <!-- configure the main verticle used by the Launcher -->
+  <property name="verticle-class" value="io.vertx.book.hello.HelloVerticle"/>
+
+  <!-- ivy to get dependencies and copy to  the lib folder automatically -->
+  <target name="resolve" description="retrieve dependencies with ivy">
+    <ivy:retrieve />
+  </target>
+
+  <!-- download the ivy jar -->
+  <target name="ivy" description="Download ivy">
+    <mkdir dir="${user.home}/.ant/lib" />
+    <get dest="${user.home}/.ant/lib/ivy.jar"
+         src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.4.0/ivy-2.4.0.jar" />
+  </target>
+  <!-- ivy end -->
+
+  <target name="init">
+    <mkdir dir="${build.dir}" />
+  </target>
+
+  <path id="classpath">
+    <fileset dir="${basedir}/">
+      <include name="${lib.dir}/*.jar" />
+    </fileset>
+  </path>
+
+  <target name="compile" depends="init" description="compile the source ">
+    <javac includeantruntime="false" srcdir="${src.dir}"
+           destdir="${build.dir}" classpathref="classpath" />
+  </target>
+
+  <target name="copy-dependencies">
+
+    <mkdir dir="${dist.lib.dir}" />
+
+    <jar jarfile="${dist.lib.dir}/dependencies-all.jar">
+      <zipgroupfileset dir="${lib.dir}">
+        <include name="**/*.jar" />
+      </zipgroupfileset>
+    </jar>
+
+  </target>
+
+  <!-- jar it, extract dependency-all.jar and zip it with the project classes -->
+  <target name="jar" depends="compile, copy-dependencies"
+          description="package the Vert.x application in a fat-jar">
+
+    <mkdir dir="${dist.dir}" />
+    <mkdir dir="${dist.lib.dir}" />
+
+    <jar jarfile="${dist.dir}/${projectName}.jar" basedir="${build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}" />
+        <attribute name="Main-Verticle" value="${verticle-class}" />
+      </manifest>
+      <zipfileset src="${dist.lib.dir}/dependencies-all.jar"
+                  excludes="META-INF/*.SF" />
+    </jar>
+
+  </target>
+
+  <target name="clean" description="clean up">
+    <delete dir="${build.dir}" />
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <target name="clean-all" depends="clean" description="clean all">
+    <delete dir="${lib.dir}" />
+  </target>
+
+  <!-- Default, run this -->
+  <target name="main" depends="clean, compile, jar" />
+
+</project>
