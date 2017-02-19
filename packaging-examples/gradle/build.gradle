@@ -1,0 +1,30 @@
+plugins {
+  id 'java'
+  id 'application'
+  id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+repositories {
+  mavenCentral()
+}
+
+
+
+def vertxVersion = '3.4.0.Beta1'
+sourceCompatibility = '1.8'
+// Use the Vert.x Launcher class
+mainClassName = 'io.vertx.core.Launcher'
+
+dependencies {
+  compile "io.vertx:vertx-core:$vertxVersion"
+}
+
+shadowJar {
+  manifest {
+    attributes 'Main-Verticle': 'io.vertx.book.hello.HelloVerticle'
+  }
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.3'
+}
