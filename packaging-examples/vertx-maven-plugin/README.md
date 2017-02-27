@@ -1,4 +1,4 @@
-# Vert.x Application Packaging with Apache Maven and the Maven-Shade-Plugin
+# Vert.x Application Packaging with Apache Maven and the Vert.x Maven Plugin
 
 This example shows how you can use Apache Maven (http://maven.apache.org/) to package a Vert.x application as a _fat jar_. This example uses the Vert.x Maven Plugin (https://vmp.fabric8.io/).
 
