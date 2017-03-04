@@ -10,6 +10,7 @@
     <vertx.projectVersion>3.4.0-SNAPSHOT</vertx.projectVersion>
     <vertx.verticle>io.vertx.book.openshift.HelloConsumerHttpVerticle</vertx.verticle>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -62,6 +63,7 @@
       <version>1.7.22</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>

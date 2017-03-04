@@ -64,25 +64,30 @@ public class HelloConsumerWithCircuitBreakerHttpVerticle extends AbstractVerticl
     private void invokeHelloMicroservice(RoutingContext rc) {
         circuit.rxExecuteCommandWithFallback(
             future -> {
-                HttpRequest<JsonObject> request1 = hello.get("/Luke").as(BodyCodec.jsonObject());
+                HttpRequest<JsonObject> request1 = hello.get("/Luke")
+                    .as(BodyCodec.jsonObject());
 
-                HttpRequest<JsonObject> request2 = hello.get("/Leia").as(BodyCodec.jsonObject());
+                HttpRequest<JsonObject> request2 = hello.get("/Leia")
+                    .as(BodyCodec.jsonObject());
 
-                Single<HttpResponse<JsonObject>> s1 = request1.rxSend();
-                Single<HttpResponse<JsonObject>> s2 = request2.rxSend();
+                Single<JsonObject> s1 = request1
+                    .rxSend().map(HttpResponse::body);
+                Single<JsonObject> s2 = request2
+                    .rxSend().map(HttpResponse::body);
 
                 Single
                     .zip(s1, s2, (luke, leia) -> {
                         // We have the result of both request in Luke and Leia
                         return new JsonObject()
-                            .put("luke", luke.body().getString("message")
-                                + " " + luke.body().getString("served-by"))
-                            .put("leia", leia.body().getString("message")
-                                + " " + leia.body().getString("served-by"));
+                            .put("luke", luke.getString("message")
+                                + " " + luke.getString("served-by"))
+                            .put("leia", leia.getString("message")
+                                + " " + leia.getString("served-by"));
                     })
                     .subscribe(future::complete, future::fail);
             },
-            error -> new JsonObject().put("message", "hello (fallback, " + circuit.state().toString() + ")")
+            error -> new JsonObject().put("message", "hello (fallback, "
+                + circuit.state().toString() + ")")
         ).subscribe(
             x -> rc.response().end(x.encodePrettily()),
             t -> rc.response().end(t.getMessage()));
