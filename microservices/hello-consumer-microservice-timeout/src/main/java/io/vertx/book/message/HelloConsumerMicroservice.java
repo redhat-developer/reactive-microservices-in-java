@@ -19,13 +19,19 @@ public class HelloConsumerMicroservice extends AbstractVerticle {
                         <JsonObject>rxSend("hello", "Luke")
                         .subscribeOn(RxHelper.scheduler(vertx))
                         .timeout(3, TimeUnit.SECONDS)
-                        .retry()
+                        .retry((i, t) -> {
+                            System.out.println("Retrying... because of " + t.getMessage());
+                            return true;
+                        })
                         .map(Message::body);
                     Single<JsonObject> obs2 = vertx.eventBus().
                         <JsonObject>rxSend("hello", "Leia")
                         .subscribeOn(RxHelper.scheduler(vertx))
                         .timeout(3, TimeUnit.SECONDS)
-                        .retry()
+                        .retry((i, t) -> {
+                            System.out.println("Retrying... because of " + t.getMessage());
+                            return true;
+                        })
                         .map(Message::body);
 
                     Single

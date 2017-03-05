@@ -40,6 +40,8 @@ javadoc/
 build/
 lib/
 
+*.idea/
+*.iml
 
 *.pbxuser
 !default.pbxuser
