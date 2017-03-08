@@ -11,7 +11,7 @@
 
   <properties>
     <vertx.verticle>io.vertx.book.hello.HelloVerticle</vertx.verticle>
-    <vertx.version>3.4.0.Beta1</vertx.version>
+    <vertx.version>3.4.0</vertx.version>
   </properties>
 
   <dependencyManagement>
@@ -51,7 +51,7 @@
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>vertx-maven-plugin</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
         <executions>
           <execution>
             <id>vmp</id>

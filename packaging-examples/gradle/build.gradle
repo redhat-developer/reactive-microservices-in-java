@@ -10,7 +10,7 @@ repositories {
 
 
 
-def vertxVersion = '3.4.0.Beta1'
+def vertxVersion = '3.4.0'
 sourceCompatibility = '1.8'
 // Use the Vert.x Launcher class
 mainClassName = 'io.vertx.core.Launcher'
