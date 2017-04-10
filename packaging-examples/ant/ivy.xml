@@ -1,7 +1,7 @@
 <ivy-module version="2.0">
 	<info organisation="io.vertx.book" module="vertx-hello" />
 	<dependencies>
-		<dependency org="io.vertx" name="vertx-core" rev="3.4.0">
+		<dependency org="io.vertx" name="vertx-core" rev="3.4.1">
       <!-- these dependencies are optional -->
 			<exclude module="log4j-api"/>
 			<exclude module="log4j-core"/>

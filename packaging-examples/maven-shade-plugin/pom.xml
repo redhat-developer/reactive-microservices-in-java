@@ -11,7 +11,7 @@
 
   <properties>
     <main.verticle>io.vertx.book.hello.HelloVerticle</main.verticle>
-    <vertx.version>3.4.0</vertx.version>
+    <vertx.version>3.4.1</vertx.version>
   </properties>
 
   <dependencyManagement>
