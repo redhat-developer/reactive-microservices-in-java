@@ -20,6 +20,6 @@ mvn clean package
 ## Execution using the application package
  
 ```
-java -jar target/hello-consumer-microservice-message-1.0-SNAPSHOT.jar -cluster -Djava.net.preferIPv4Stack=true
+java -jar target/hello-consumer-microservice-timeout-1.0-SNAPSHOT.jar -cluster -Djava.net.preferIPv4Stack=true
 ``` 
  
