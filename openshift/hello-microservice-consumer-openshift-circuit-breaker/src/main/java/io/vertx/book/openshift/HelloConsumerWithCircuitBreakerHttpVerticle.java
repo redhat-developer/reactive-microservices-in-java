@@ -45,6 +45,9 @@ public class HelloConsumerWithCircuitBreakerHttpVerticle extends AbstractVerticl
             Single<WebClient> single = HttpEndpoint.rxGetWebClient(discovery,
                 rec -> rec.getName().equalsIgnoreCase("hello-microservice"));
 
+            // In the hal-open state, we rediscover the endpoint.
+            circuit.halfOpenHandler(v -> single.subscribe(client -> this.hello = client));
+
             single.subscribe(
                 client -> {
                     // the configured hello to call our microservice
